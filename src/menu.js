@@ -1,11 +1,9 @@
 import {Menu} from './core/menu'
-import {Module} from "./core/module"
+
 
 export class ContextMenu extends Menu {
     ul = document.querySelector("#menu")
-    
     open() {
-        let module = new Module(1,"Поменять цвет")
         // Всплытие контекстного меню
         document.body.addEventListener("contextmenu", event => {
             event.preventDefault()
@@ -14,12 +12,8 @@ export class ContextMenu extends Menu {
             this.ul.style.top = Y
             this.ul.style.left = X
             this.ul.style.display = "block"
-            this.ul.innerHTML = module.toHTML() + module.toHTML() + 
-                                module.toHTML() + module.toHTML()
-            
-            let li = document.querySelectorAll("li")
-            console.log(li)
         })
+        
     }
     close() {
         // Скрываем контекстное меню
@@ -29,10 +23,8 @@ export class ContextMenu extends Menu {
             }
         })
     }
-   add() {
-   // Тут что-то будет =)
-   }
-   
-
+    add(module) {
+        this.ul.innerHTML = this.ul.innerHTML + module.toHTML()
+    }
 }
 
