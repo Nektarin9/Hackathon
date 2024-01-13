@@ -90,3 +90,14 @@ body {
 .square:hover {
     transition-duration: 0s;
 }
+
+.board-container {
+    width: 100%;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
