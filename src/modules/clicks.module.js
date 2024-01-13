@@ -14,7 +14,7 @@ export class ClicksModule extends Module {
             createMassage();
         }, 5000);
 
-        function handleClick(evt) {
+        function handleClick() {
             const currentTime = new Date().getTime();
             const timeSinceLastClick = currentTime - lastClickTime
 
@@ -25,7 +25,7 @@ export class ClicksModule extends Module {
             lastClickTime = currentTime;
         }
 
-        function handleDoubleClick(evt) {
+        function handleDoubleClick() {
             doubleclickCount++;
             clickCount = Math.round(clickCount/2)
             lastClickTime = new Date().getTime();
@@ -53,10 +53,10 @@ export class ClicksModule extends Module {
             doubleClick.textContent = `Двойных кликов: ${doubleclickCount}`
 
             const onceClick = document.createElement('p')
-            onceClick.textContent = `Одинарных кликов: ${clickCount}`
+            onceClick.textContent = `Одинарных кликов: ${clickCount - 1}`
 
             const sumClick = document.createElement('p')
-            sumClick.textContent = `Всего: ${clickCount + doubleclickCount} кликов`
+            sumClick.textContent = `Всего: ${clickCount - 1 + doubleclickCount} кликов`
 
             titleCount.insertAdjacentElement('afterend', doubleClick)
             doubleClick.insertAdjacentElement('afterend', onceClick)
