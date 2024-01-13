@@ -24,4 +24,3 @@ export class ContextMenu extends Menu {
         this.ul.innerHTML = this.ul.innerHTML + module.toHTML()
     }
 }
-
