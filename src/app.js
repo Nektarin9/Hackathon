@@ -5,9 +5,12 @@ import {ClicksModule} from "./modules/clicks.module.js"
 import {BackgroundModule} from "./modules/background.module.js"
 import {RandomMessage} from "./modules/message.module.js"
 import {ShapeModule} from "./modules/shape.module.js"
+
+import { DrawingModule } from "./modules/drawing.module";
+import { CountdownTimerModule } from "./modules/countdownTimer.module";
+
 import {DrawingModule} from "./modules/drawing.module";
 import {RndAudioModule} from "./modules/randomAudio.module.js"
-
 
 
 function addMenuEvent() {
@@ -28,6 +31,8 @@ function addMenuEvent() {
         }
         else if (target.dataset.type === "DrawingModule") {
             drawingModule.trigger()
+        }else if (target.dataset.type === "CountdownTimerModule") {
+            countdownTimerModule.trigger()
         }
         else if (target.dataset.type === "RndAudioModule") {
             rndAudioModule.trigger()
@@ -41,6 +46,9 @@ const clicksModule = new ClicksModule("ClicksModule", "Считать кнопк
 const randomMessage = new RandomMessage("RandomMessage", "Вызвать сообщение")
 const shapeModule = new ShapeModule("ShapeModule", "Случайная фигура")
 const drawingModule = new DrawingModule("DrawingModule", "Рисовалка")
+
+const countdownTimerModule = new CountdownTimerModule("CountdownTimerModule", "Таймер обратного отсчета")
+
 const rndAudioModule = new RndAudioModule("RndAudioModule", "Случайный звук")
 
 
@@ -57,7 +65,9 @@ menu.add(clicksModule)
 menu.add(randomMessage)
 menu.add(shapeModule)
 menu.add(drawingModule)
+menu.add(countdownTimerModule)
 menu.add(rndAudioModule)
+
 
 menu.open()
 menu.close()
