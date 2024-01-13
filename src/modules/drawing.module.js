@@ -52,8 +52,7 @@ export class DrawingModule extends Module {
 
         function handleClick(evt) {
             evt.preventDefault()
-            document.body.style.backgroundColor = "inherit"
-            document.body.style.display = "inherit"
+            document.body.style = "inherit"
             if (containerBoard) {
                 containerBoard.remove()
             }
