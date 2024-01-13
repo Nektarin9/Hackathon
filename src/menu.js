@@ -18,9 +18,7 @@ export class ContextMenu extends Menu {
     close() {
         // Скрываем контекстное меню
         document.body.addEventListener("click", event => {
-            if (event.target === document.body){
-                this.ul.style.display = "none"
-            }
+            this.ul.style.display = "none"
         })
     }
     add(module) {
