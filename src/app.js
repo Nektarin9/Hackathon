@@ -5,7 +5,7 @@ import {ClicksModule} from "./modules/clicks.module.js"
 import {BackgroundModule} from "./modules/background.module.js"
 import {RandomMessage} from "./modules/message.module.js"
 import {ShapeModule} from "./modules/shape.module.js"
-import { DrawingModule } from "@/modules/drawing.module";
+import { DrawingModule } from "./modules/drawing.module";
 
 function addMenuEvent() {
     const ul = document.querySelector("#menu")
