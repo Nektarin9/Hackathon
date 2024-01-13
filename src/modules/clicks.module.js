@@ -2,7 +2,7 @@ import {Module} from '../core/module'
 
 export class ClicksModule extends Module {
     trigger() {
-        console.log(1)
+        console.log(2)
         
     }
 }

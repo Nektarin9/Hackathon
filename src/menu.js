@@ -13,14 +13,11 @@ export class ContextMenu extends Menu {
             this.ul.style.left = X
             this.ul.style.display = "block"
         })
-        
     }
     close() {
         // Скрываем контекстное меню
         document.body.addEventListener("click", event => {
-            if (event.target === document.body){
-                this.ul.style.display = "none"
-            }
+            this.ul.style.display = "none"
         })
     }
     add(module) {

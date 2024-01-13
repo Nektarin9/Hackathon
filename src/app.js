@@ -10,19 +10,17 @@ function addMenuEvent() {
     ul.addEventListener("click", event => {
         const {target} = event
         if (target.dataset.type === "BackgroundModule") {
-            document.body.style.background = "green"
             backgroundModule.trigger()
         }
         else if (target.dataset.type === "ClicksModule") {
-            document.body.style.background = "red"
             clicksModule.trigger()
         }
         else if (target.dataset.type === "RandomMessage") {
-            document.body.style.background = "black"
             randomMessage.trigger()
         }
     
     })
+
   }
 
 const backgroundModule = new BackgroundModule("BackgroundModule","Поменять цвет")
