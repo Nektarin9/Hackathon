@@ -4,14 +4,11 @@ export class DrawingModule extends Module {
     trigger() {
         const containerBoard = document.createElement('div')
         containerBoard.id = 'board'
-        document.body.style.backgroundColor = "#111"
-        document.body.style.display = "flex"
-        document.body.style.alignItems = "center"
-        document.body.style.justifyContent = "center"
-        document.body.style.height = "100vh"
-        document.body.style.overflow = "hidden"
-        document.body.style.margin = "0"
-        document.body.appendChild(containerBoard)
+        const contBoard = document.createElement('div')
+        contBoard.className = 'board-container'
+
+        document.body.appendChild(contBoard)
+        contBoard.appendChild(containerBoard)
 
         const squareContainer = document.createElement('div')
         squareContainer.className = "container"
@@ -52,9 +49,8 @@ export class DrawingModule extends Module {
 
         function handleClick(evt) {
             evt.preventDefault()
-            document.body.style = "inherit"
-            if (containerBoard) {
-                containerBoard.remove()
+            if (contBoard) {
+                contBoard.remove()
             }
         }
     }
