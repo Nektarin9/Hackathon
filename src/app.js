@@ -24,7 +24,7 @@ function addMenuEvent() {
         }
     })
 
-  }
+}
 
 const backgroundModule = new BackgroundModule("BackgroundModule","Поменять цвет")
 const clicksModule = new ClicksModule("ClicksModule", "Считать кнопки (за 3 секунды)")
@@ -44,10 +44,3 @@ menu.close()
 
 
 addMenuEvent()
-
-
-
-
-
-
-
