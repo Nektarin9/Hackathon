@@ -2,22 +2,44 @@ import {Module} from '../core/module'
 
 export class ClicksModule extends Module {
     trigger() {
+        let lastClickTime = 0
         let clickCount = 0
+        let doubleclickCount = 0
 
-        document.body.addEventListener('dblclick', handleClick)
         document.body.addEventListener('click', handleClick)
+        document.body.addEventListener('dblclick', handleDoubleClick)
+        document.body.addEventListener('contextmenu', handleCloseContextMenu)
 
-        setTimeout( function () {
-            createMassage()
-        }, 5000)
-
-
+        setTimeout(function () {
+            createMassage();
+        }, 5000);
 
         function handleClick(evt) {
-            clickCount++;
-                console.log('click');
+            const currentTime = new Date().getTime();
+            const timeSinceLastClick = currentTime - lastClickTime
+
+            if (timeSinceLastClick >= 300) {
+                clickCount++
+            }
+
+            lastClickTime = currentTime;
         }
 
+        function handleDoubleClick(evt) {
+            doubleclickCount++;
+            clickCount = Math.round(clickCount/2)
+            lastClickTime = new Date().getTime();
+        }
+
+        function handleCloseContextMenu(evt) {
+            evt.preventDefault()
+            clickCount = 0
+            doubleclickCount = 0
+            const clickCountsMessage = document.querySelector('.count-message')
+            if (clickCountsMessage) {
+                clickCountsMessage.remove()
+            }
+        }
 
         function createMassage() {
             const clickCountsMessage = document.createElement('div')
@@ -27,11 +49,19 @@ export class ClicksModule extends Module {
             titleCount.textContent = "Вы сделали:"
             clickCountsMessage.insertAdjacentElement("afterbegin", titleCount)
 
-            const sumClick = document.createElement('p')
-            sumClick.textContent = `${clickCount} кликов`
+            const doubleClick = document.createElement('p')
+            doubleClick.textContent = `Двойных кликов: ${doubleclickCount}`
 
-            titleCount.insertAdjacentElement("afterend", sumClick)
-            document.body.insertAdjacentElement("afterbegin", clickCountsMessage)
+            const onceClick = document.createElement('p')
+            onceClick.textContent = `Одинарных кликов: ${clickCount}`
+
+            const sumClick = document.createElement('p')
+            sumClick.textContent = `Всего: ${clickCount + doubleclickCount} кликов`
+
+            titleCount.insertAdjacentElement('afterend', doubleClick)
+            doubleClick.insertAdjacentElement('afterend', onceClick)
+            onceClick.insertAdjacentElement('afterend', sumClick)
+            document.body.insertAdjacentElement('afterbegin', clickCountsMessage)
         }
     }
 }
