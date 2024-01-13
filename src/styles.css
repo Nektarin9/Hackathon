@@ -47,3 +47,24 @@ body {
     font-weight: 800;
     margin: 30px;
 }
+.count-message {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    border: 1px solid black;
+    width: 300px;
+    height: 365px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.count-message h2 {
+    margin-top: 15px;
+}
+
+.count-message p {
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
