@@ -15,7 +15,7 @@ export class DrawingModule extends Module {
         containerBoard.appendChild(squareContainer)
 
         const board = document.querySelector('.container')
-        const SQUARES_NUMBER=720
+        const SQUARES_NUMBER=1480
         const colors=['#ff69b4','#c71585','#f8f8ff','#48d1cc','#00ffff','#9acd32','#ffd700','#ff7f50','#2f4f4f', '#0000cd']
 
         for(let i=0;i<SQUARES_NUMBER;i++) {
