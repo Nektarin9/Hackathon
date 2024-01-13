@@ -13,6 +13,7 @@ export class ContextMenu extends Menu {
             this.ul.style.left = X
             this.ul.style.display = "block"
         })
+
     }
     close() {
         // Скрываем контекстное меню
