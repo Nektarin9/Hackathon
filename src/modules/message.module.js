@@ -40,6 +40,7 @@ export class RandomMessage extends Module {
         author.classList.add("randomMessage")
         document.body.append(author)
         document.body.append(quote)
+        setTimeout(handleClick, 8000)
         document.addEventListener('contextmenu', handleClick)
     }
 }
