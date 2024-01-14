@@ -1,4 +1,5 @@
 import {Module} from '../core/module'
+import {random} from '../utils.js'
 
 export class RandomMessage extends Module {
     trigger() {
@@ -31,7 +32,7 @@ export class RandomMessage extends Module {
         let authors = Object.keys(quoteList)
         const author = document.createElement("p")
         const quote = document.createElement("p")
-        author.textContent = authors[Math.floor(Math.random() * authors.length)]
+        author.textContent = authors[random(0, authors.length)]
         quote.textContent = quoteList[author.innerHTML]
         quote.classList.add("randomMessage")
         author.classList.add("randomMessage")

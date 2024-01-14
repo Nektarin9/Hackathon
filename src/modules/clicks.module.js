@@ -11,8 +11,8 @@ export class ClicksModule extends Module {
         document.body.addEventListener('contextmenu', handleCloseContextMenu)
 
         setTimeout(function () {
-            createMassage();
-        }, 5000);
+            createMassage()
+        }, 5000)
 
         function handleClick() {
             const currentTime = new Date().getTime();
@@ -22,13 +22,13 @@ export class ClicksModule extends Module {
                 clickCount++
             }
 
-            lastClickTime = currentTime;
+            lastClickTime = currentTime
         }
 
         function handleDoubleClick() {
             doubleclickCount++;
-            clickCount = Math.round(clickCount/2)
-            lastClickTime = new Date().getTime();
+            clickCount = Math.round(clickCount / 2)
+            lastClickTime = new Date().getTime()
         }
 
         function handleCloseContextMenu(evt) {

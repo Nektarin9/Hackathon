@@ -1,53 +1,31 @@
 import {Module} from '../core/module'
+import {random, changeBackground} from '../utils.js'
 
 export class ShapeModule extends Module {
     trigger() {
-        let figureСheck = document.querySelector('.figure');
+        let figureСheck = document.querySelector('.figure')
         if (figureСheck !== null) {
-            figureСheck.remove();
+            figureСheck.remove()
         }
-        function randomNum(randomNum) {
-            return Math.ceil(randomNum * Math.random());
-        }
-
-        function getRandomSize(minSize, maxSize) {
-            return Math.round(Math.random() * (maxSize - minSize) + minSize)
-        }
-
-        
-        function changeBackground() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-        const figure = document.createElement('div');
-        const random = randomNum(2)
-        if (random === 1) {
-            figure.classList.add('figure');
-            figure.style.position = 'absolute'
-            figure.style.width = `${getRandomSize(10, 200)}px`
-            figure.style.height = `${getRandomSize(10, 200)}px`
-            figure.style.borderRadius = `${getRandomSize(0, 50)}px`
-            figure.style.top = `${getRandomSize(10, 90)}%`
-            figure.style.left = `${getRandomSize(10, 90)}%`
+        const figure = document.createElement('div')
+        const count = random(0, 2)
+        figure.classList.add('figure')
+        figure.style.position = 'absolute'
+        figure.style.width = `${random(10, 200)}px`
+        figure.style.top = `${random(10, 90)}%`
+        figure.style.left = `${random(10, 90)}%`
+        figure.style.transform = `rotate(${random(0, 360)}deg)`
+        if (count === 1) {
+            figure.style.height = `${random(10, 200)}px`
+            figure.style.borderRadius = `${random(0, 50)}px`
             figure.style.backgroundColor = `${changeBackground()}`
-            figure.style.transform = `rotate(${randomNum(360)}deg)`
-            document.body.append(figure);
+            document.body.append(figure)
         } else {
-            figure.style.position = 'absolute'
-            figure.style.width = `${getRandomSize(10, 200)}px`
-            figure.classList.add('figure');
-            figure.style.top = `${getRandomSize(10, 90)}%`
-            figure.style.left = `${getRandomSize(10, 90)}%`
-            figure.style.border = `${getRandomSize(10, 90)}px solid transparent`
-            figure.style.borderBottom = `${getRandomSize(10, 90)}px solid ${changeBackground()}`
-            figure.style.transform = `rotate(${randomNum(360)}deg)`
-            document.body.append(figure);
+            figure.style.border = `${random(10, 90)}px solid transparent`
+            figure.style.borderBottom = `${random(10, 90)}px solid ${changeBackground()}`
+            document.body.append(figure)
         }
-        figureСheck = document.querySelector('.figure');
+        figureСheck = document.querySelector('.figure')
         setTimeout(() => {
             figureСheck.remove()
         }, 5000);

@@ -1,4 +1,6 @@
 import {Module} from '../core/module'
+import {changeBackground} from '../utils.js'
+
 export class DrawingModule extends Module {
 
     trigger() {
@@ -15,10 +17,9 @@ export class DrawingModule extends Module {
         containerBoard.appendChild(squareContainer)
 
         const board = document.querySelector('.container')
-        const SQUARES_NUMBER=1480
-        const colors=['#ff69b4','#c71585','#f8f8ff','#48d1cc','#00ffff','#9acd32','#ffd700','#ff7f50','#2f4f4f', '#0000cd']
+        const SQUARES_NUMBER = 10000
 
-        for(let i=0;i<SQUARES_NUMBER;i++) {
+        for(let i = 0; i < SQUARES_NUMBER; i++) {
             const square = document.createElement('div')
             square.classList.add('square')
 
@@ -29,22 +30,16 @@ export class DrawingModule extends Module {
         }
 
         function setColor(element) {
-            const color = getRandomColor()
-            element.style.backgroundColor=color
-            element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`
+            element.style.backgroundColor= changeBackground()
+            element.style.boxShadow = `0 0 2px ${changeBackground()}, 0 0 10px ${changeBackground()}`
         }
 
         function removeColor(element) {
-            element.style.backgroundColor='#1d1d1d'
+            element.style.backgroundColor='#b8b8b8'
             element.style.boxShadow=`0 0 2px #000`
         }
 
-        function getRandomColor() {
-            const index=Math.floor(Math.random()*colors.length)
-
-            return colors[index]
-        }
-
+        
         document.addEventListener('contextmenu', handleClick)
 
         function handleClick(evt) {

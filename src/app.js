@@ -5,10 +5,9 @@ import {ClicksModule} from "./modules/clicks.module.js"
 import {BackgroundModule} from "./modules/background.module.js"
 import {RandomMessage} from "./modules/message.module.js"
 import {ShapeModule} from "./modules/shape.module.js"
-import {DrawingModule} from "./modules/drawing.module";
-import {CountdownTimerModule} from "./modules/countdownTimer.module";
+import {DrawingModule} from "./modules/drawing.module"
+import {CountdownTimerModule} from "./modules/countdownTimer.module"
 import {RndAudioModule} from "./modules/randomAudio.module.js"
-
 
 function addMenuEvent() {
     const ul = document.querySelector("#menu")
@@ -36,7 +35,6 @@ function addMenuEvent() {
             rndAudioModule.trigger()
         }
     })
-
 }
 
 const backgroundModule = new BackgroundModule("BackgroundModule","Поменять цвет")
@@ -47,14 +45,7 @@ const drawingModule = new DrawingModule("DrawingModule", "Рисовалка")
 const countdownTimerModule = new CountdownTimerModule("CountdownTimerModule", "Таймер обратного отсчета")
 const rndAudioModule = new RndAudioModule("RndAudioModule", "Случайный звук")
 
-
 const menu = new ContextMenu()
-
-
-
-
-
-
 
 menu.add(backgroundModule)
 menu.add(clicksModule)
@@ -64,10 +55,7 @@ menu.add(drawingModule)
 menu.add(countdownTimerModule)
 menu.add(rndAudioModule)
 
-
 menu.open()
 menu.close()
-
-
 
 addMenuEvent()
