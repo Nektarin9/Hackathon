@@ -2,13 +2,10 @@ import {Module} from '../core/module'
 
 export class RandomMessage extends Module {
     trigger() {
-        function handleClick() {
-            const item = document.querySelectorAll(".randomMessage")
-            item.forEach(elem => {
-                elem.remove()
-            })
-        }
-        
+        let item = document.querySelectorAll(".randomMessage")
+        item.forEach(elem => {
+            elem.remove()
+        })
         const quoteList = {
             "Э. М. Ремарк" : "Запомни одну вещь, мальчик: никогда, никогда и еще раз никогда ты не окажешься смешным в глазах женщины, если сделаешь что-то ради нее.",
             "Джон Леннон" : "Когда мне было 5 лет, мама всегда твердила мне, что самое важное в жизни — быть счастливым. Когда я пошел в школу, меня спросили, кем я хочу стать, когда вырасту. Я написал «счастливым». Мне сказали – «ты не понял задание», а я ответил — «вы не поняли жизнь».",
@@ -40,7 +37,17 @@ export class RandomMessage extends Module {
         author.classList.add("randomMessage")
         document.body.append(author)
         document.body.append(quote)
-        setTimeout(handleClick, 8000)
-        document.addEventListener('contextmenu', handleClick)
+        item = document.querySelectorAll(".randomMessage")
+        setTimeout(() => {
+            item.forEach(elem => {
+                elem.remove()
+            })
+        }, 7000)
+        document.addEventListener('contextmenu', event => {
+            item.forEach(elem => {
+                elem.remove()
+            })
+        })
+
     }
 }
